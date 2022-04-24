@@ -3,6 +3,23 @@
   padding: 10px;
 }
 
+.fligthlist_footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.show_more_btn {
+  width: 250px;
+  height: 30px;
+  border: 1px solid #252525;
+  border-radius: 0px;
+
+  font-size: 15px;
+  cursor: pointer;
+}
+
 .flightlist_empty {
   display: flex;
   justify-content: center;

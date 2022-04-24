@@ -9,6 +9,7 @@ const allAirlines = getAllAirlines(allFligths)
 const initialState = {
   allFligths: allFligths,
   processedFlights: [...allFligths].sort((a,b) => a.price - b.price),
+  listLength: 2,
   searchOptions: {
     sortBy: 'price_increase' as SortVariants,
     segmentsFilter: {
@@ -89,7 +90,9 @@ const appReducer = (state: AppStateType = initialState, action: AllActions) => {
 
       return {
         ...state,
-        processedFlights,
+        processedFlights: [
+          ...processedFlights
+        ],
         searchOptions: {
           ...state.searchOptions,
           airlineFilter: [...processedAirlineFilter],
@@ -147,7 +150,7 @@ const appReducer = (state: AppStateType = initialState, action: AllActions) => {
           ]
         }
       }
-  
+
     default:
       return state
   }
