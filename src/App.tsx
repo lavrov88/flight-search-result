@@ -2,14 +2,15 @@ import React from 'react';
 import './App.css';
 import FlightsList from './components/FlightsList/FlightsList';
 import SearchOptions from './components/SearchOptions/SearchOptions';
-import { useAppSelector } from './redux/store';
+import { useAppDispatch, useAppSelector } from './redux/store';
 
 function App() {
-  const { app } = useAppSelector(s => s)
+  const { app } = useAppSelector(store => store)
+  const dispatch = useAppDispatch()
 
   return (
     <div className="App">
-      <SearchOptions app={app} />
+      <SearchOptions app={app} dispatch={dispatch} />
       <FlightsList flights={app.processedFlights} />
     </div>
   )

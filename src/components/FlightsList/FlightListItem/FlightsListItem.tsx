@@ -94,7 +94,7 @@ const FlightListItemStyled = styled.li`
 const FlitghtListItemHeaderStyled = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 2px 15px 4px;
+  padding: 2px 15px 6px;
 
   background-color: #0087C9;
   color: #fff;
@@ -102,7 +102,8 @@ const FlitghtListItemHeaderStyled = styled.div`
   & .flight_list_item_header__airline {
     display: flex;
     align-items: center;
-    font-size: 25px;
+    font-size: 22px;
+    line-height: 1;
   }
 
   & .flight_list_item_header__price {
@@ -110,7 +111,8 @@ const FlitghtListItemHeaderStyled = styled.div`
     font-size: 22px;
 
     & .price_description {
-      font-size: 12px;
+      font-size: 11px;
+      line-height: 1;
     }
   }
 `

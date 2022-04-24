@@ -3,21 +3,16 @@ import styled from "styled-components";
 import { FlightsListProps } from "../../types";
 import FlightListItem from "./FlightListItem/FlightsListItem"
 
-const FlightsListWrapper = styled.main`
-  flex-grow: 1;
 
-  padding: 10px;
-`
 
-const FlightsList = ({ flights }: FlightsListProps) => {  
-
+const FlightsList = ({ flights }: FlightsListProps) => {
   let keyCount = 0
   const getKey = () => 'key_' + keyCount++
 
   return (
     <FlightsListWrapper>
+      {!!flights.length && 
       <ul>
-
         {flights.map(f => {
           return (
             <FlightListItem 
@@ -61,11 +56,30 @@ const FlightsList = ({ flights }: FlightsListProps) => {
             />
           )
         })}
+      </ul>}
 
-        {/* <FlightListItem /> */}
-      </ul>
+      {!flights.length && 
+      <FlightEmptyList>
+        К сожалению, не нашлось рейсов, подходящих под ваши параметры...
+      </FlightEmptyList>}
     </FlightsListWrapper>
   )
 }
 
 export default FlightsList
+
+const FlightsListWrapper = styled.main`
+  flex-grow: 1;
+
+  padding: 10px;
+`
+
+const FlightEmptyList = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  padding: 0 50px;
+
+  font-size: 18px;
+`

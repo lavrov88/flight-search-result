@@ -1,6 +1,6 @@
 // DATA EXTRACT
 
-import { FlightDataObject } from "../types"
+import { AirlineFilter, FilterAndSortData, FilterAndSortSettings, FlightDataObject, PriceFilter, SegmentsFilter, SortVariants } from "../types"
 
 export const getAllAirlines = (flights: FlightDataObject[]) => {
   const setData =  new Set(flights.map(f => f.carrier.caption)) 
@@ -9,6 +9,79 @@ export const getAllAirlines = (flights: FlightDataObject[]) => {
   return arrData
 }
 
+
+// DATA PROCESSING
+
+export const filterBySegments = (inputFlights: FlightDataObject[], segmentsFilter: SegmentsFilter) => {
+  const { transfer_0, transfer_1 } = segmentsFilter
+  if (transfer_0.isChecked && !transfer_1.isChecked) {
+    return inputFlights.filter(f => {
+      return f.legs[0].segments === 1 && f.legs[1].segments === 1
+    })
+  }
+  if (!transfer_0.isChecked && transfer_1.isChecked) {
+    return inputFlights.filter(f => {
+      return f.legs[0].segments === 2 && f.legs[1].segments === 2
+    })
+  }
+  return inputFlights
+}
+
+
+export const filterByPriceRange = (inputFlights: FlightDataObject[], priceFilter: PriceFilter) => {
+  const { priceFrom, priceTo } = priceFilter
+  return inputFlights.filter(f => {
+    return f.price >= priceFrom && f.price <= priceTo
+  })
+}
+
+
+export const filterByAirline = (inputFlights: FlightDataObject[], airlineFilter: AirlineFilter) => {
+  const checkedAirlines = [...airlineFilter].filter(a => a.isChecked)
+  if (checkedAirlines.length !== 0 && checkedAirlines.length !== airlineFilter.length) {
+    return inputFlights.filter(f => {
+      return checkedAirlines.findIndex(a => a.name === f.carrier.caption) !== -1
+    })
+  }
+  return inputFlights
+}
+
+export const sortFlights = (inputFlights: FlightDataObject[], sortBy: SortVariants) => {
+  switch (sortBy) {
+    case 'price_increase':
+      return inputFlights.sort((a,b) => a.price - b.price)
+
+    case 'price_decrease':
+      return inputFlights.sort((a,b) => b.price - a.price)
+      
+    case 'travel_time':
+      return inputFlights.sort((a,b) => a.bothSidesTravelTime - b.bothSidesTravelTime)
+    
+    default:
+      return inputFlights
+  }
+}
+
+export const filterAndSort = (inputFlights: FlightDataObject[], 
+                              dataObj: FilterAndSortData,
+                              settingsObj: FilterAndSortSettings) => {
+  let flights = [...inputFlights]
+
+  if (settingsObj.segmentsFilter) {
+    flights = filterBySegments(flights, dataObj.segmentsFilter)
+  }
+  if (settingsObj.priceFilter) {
+    flights = filterByPriceRange(flights, dataObj.priceFilter)
+  }
+  if (settingsObj.airlineFilter) {
+    flights = filterByAirline(flights, dataObj.airlineFilter)
+  }
+  if (settingsObj.sortBy) {
+    flights = sortFlights(flights, dataObj.sortBy)
+  }
+
+  return flights
+}
 
 
 // TIME AND DATE
