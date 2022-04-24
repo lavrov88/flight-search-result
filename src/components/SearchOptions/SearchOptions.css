@@ -1,0 +1,46 @@
+.search_options_wrapper {
+  width: 250px;
+  min-width: 250px;
+  padding: 20px;
+
+  font-size: 13px;
+  color: #222222;
+}
+
+.form_section {
+  margin-bottom: 24px;
+}
+
+.form_section_title {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.form_input_option {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.form_input_option span {
+  margin-right: 8px;
+}
+
+.form_checkbox_item label.disabled {
+  color: #808080;
+}
+
+.form_checkbox_option.airlines {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form_checkbox_option__airline_name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.form_checkbox_option__price {
+  min-width: 65px;
+}

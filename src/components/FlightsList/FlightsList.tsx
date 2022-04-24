@@ -1,16 +1,14 @@
 import React from "react";
-import styled from "styled-components";
 import { FlightsListProps } from "../../types";
 import FlightListItem from "./FlightListItem/FlightsListItem"
-
-
+import './FlightsList.css'
 
 const FlightsList = ({ flights }: FlightsListProps) => {
   let keyCount = 0
   const getKey = () => 'key_' + keyCount++
 
   return (
-    <FlightsListWrapper>
+    <main className="flightlist_wrapper">
       {!!flights.length && 
       <ul>
         {flights.map(f => {
@@ -59,27 +57,11 @@ const FlightsList = ({ flights }: FlightsListProps) => {
       </ul>}
 
       {!flights.length && 
-      <FlightEmptyList>
+      <div className="flightlist_empty">
         К сожалению, не нашлось рейсов, подходящих под ваши параметры...
-      </FlightEmptyList>}
-    </FlightsListWrapper>
+      </div>}
+    </main>
   )
 }
 
 export default FlightsList
-
-const FlightsListWrapper = styled.main`
-  flex-grow: 1;
-
-  padding: 10px;
-`
-
-const FlightEmptyList = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 300px;
-  padding: 0 50px;
-
-  font-size: 18px;
-`

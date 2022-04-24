@@ -1,0 +1,14 @@
+.flightlist_wrapper {
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.flightlist_empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  padding: 0 50px;
+
+  font-size: 18px;
+}

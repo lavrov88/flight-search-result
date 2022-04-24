@@ -1,0 +1,117 @@
+.flightlist_item {
+  background-color: #fff;
+  margin-bottom: 30px;
+}
+
+.flightlist_item_header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 15px 6px;
+
+  background-color: #0087C9;
+  color: #fff;
+}
+
+.flight_list_item_header__airline {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.flight_list_item_header__price {
+  text-align: right;
+  font-size: 22px;
+}
+
+.price_description {
+  font-size: 11px;
+  line-height: 1;
+}
+
+.flightlist_item_leg {
+  padding: 5px 20px;
+}
+
+.flight_list_item_section__from_to span {
+  color: #0087C9;
+}
+
+.flight_list_item_section__time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0%;
+
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.flight_list_item_section__date {
+  margin: 0 8px;
+
+  font-size: 16px;
+  font-weight: 500;
+  color: #0087c9;
+}
+
+.flight_list_item_section__time_during {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.flight_list_item_section__transfer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  font-size: 15px;
+}
+
+.flight_list_item_section__transfer span {
+  z-index: 1;
+
+  background-color: #fff;
+  padding: 0 5px;
+}
+
+.flight_list_item_section__transfer::before {
+  position: absolute;
+  content: '';
+  top: 55%;
+  left: 5%;
+  height: 1px;
+  width: 90%;
+
+  background-color: #ccc;
+}
+
+.flight_list_item_divider {
+  width: 100%;
+  height: 2px;
+  margin: 5px 0;
+  
+  background-color: #0087C9;
+}
+
+.flight_list_item_footer {
+  margin-top: 5px;
+}
+
+.flight_item_choose_btn {
+  height: 35px;
+  width: 100%;
+  border: none;
+
+  background-color: #FFB168;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+.flight_item_choose_btn:hover {
+  background-color: #ffba7a;
+}

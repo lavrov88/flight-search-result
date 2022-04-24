@@ -8,7 +8,7 @@ const allAirlines = getAllAirlines(allFligths)
 
 const initialState = {
   allFligths: allFligths,
-  processedFlights: allFligths,
+  processedFlights: [...allFligths].sort((a,b) => a.price - b.price),
   searchOptions: {
     sortBy: 'price_increase' as SortVariants,
     segmentsFilter: {
@@ -50,6 +50,7 @@ const appReducer = (state: AppStateType = initialState, action: AllActions) => {
         sortBy: state.searchOptions.sortBy
       }
 
+      // UPDATE FLIGHT LIST
       const processedFlights = filterAndSort([...state.allFligths], dataObj, 
                                             { segmentsFilter: true, 
                                               priceFilter: true, 
