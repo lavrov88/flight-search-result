@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './AppMobile.css';
 import FlightsList from './components/FlightsList/FlightsList';
 import SearchOptions from './components/SearchOptions/SearchOptions';
 import { useAppDispatch, useAppSelector } from './redux/store';

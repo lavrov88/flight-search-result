@@ -1,0 +1,47 @@
+@media (max-width: 800px) {
+  .App {
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .search_options_wrapper {
+    width: 100% !important;
+  }
+
+  .search_options_wrapper form {
+    display: flex;
+    gap: 0px 20px;
+    flex-wrap: wrap;
+  }
+
+  .form_section {
+    max-width: 250px;
+    min-width: 40%;
+    margin-bottom: 15px !important;
+  }
+
+  .flight_list_item_section__time_start,
+  .flight_list_item_section__time_finish {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flight_list_item_section__time_finish {
+    flex-direction: column-reverse;
+    align-items: end;
+  }
+
+  .flight_list_item_section__date {
+    margin: 0px !important;
+  }
+
+  .flight_list_item_section__time_during {
+    max-width: 40%;
+    font-size: 14px !important;
+  }
+
+  .flight_list_item_section__airline {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
